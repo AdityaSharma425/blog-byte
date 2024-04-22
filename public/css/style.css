@@ -20,6 +20,10 @@ body{
 }
 
 
+.pfp{
+  border-radius: 100px;
+}
+
 #viewBlog{
   background-color: rgb(255, 217, 0);
   color: black;
