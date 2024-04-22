@@ -21,6 +21,11 @@ const upload = multer({ storage: storage })
 
 
 
+router.get('/add-new', (req, res) => {
+  return res.render('addBlog', {
+    user: req.user,
+  });
+});
 
 router.post('/search', async(req, res) => {
   const blogs = await Blog.find({title: new RegExp(req.body.search, 'i')});
@@ -122,11 +127,6 @@ router.post('/comment/:blogId', async(req, res) => {
 
 
 
-router.get('/add-new', (req, res) => {
-  return res.render('addBlog', {
-    user: req.user,
-    });
-});
 
 router.post('/', upload.single('coverImage'), async(req, res) => {
   const {title, body, category} = req.body;
