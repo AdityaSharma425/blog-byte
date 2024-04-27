@@ -7,29 +7,51 @@
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div class="container">
-        <b>My Blogs</b>
-        <div class="row row-cols-4">
-        <% blogs.forEach(blog => { %>
-            <div class="col">
-            <div class="card" style="width: 18rem;">
-                <img src="<%= blog.coverImageURL %>" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title"><%= blog.title %></h5>
-                  
-                  <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
-                </div>
-              </div>
-            </div>
-        <% }) %>
-        <% if (blogs.length === 0) { %>
-            <div class="container mt-3">
-                <h2>You've not published any blog!</h2>
-            </div>
-        <% } %>
+    <div class="container6">
+        
+
+        <div class="dashboard">
+            <h2>Dashboard</h2>
+            <p>Welcome, <%= user.fullName %>!</p>
+            <!-- Add your dashboard content here -->
+            <a href="/blog/add-new" class="btn btn-primary">Create a new blog</a>
+
+
+
+        </div>
+
+        
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% blogs.forEach(blog => { %>
+                <tr>
+                <td><div class="container">
+                    <div class="blogImgLink">
+                        <img src="<%= blog.coverImageURL %>" class="dashboardImg">
+                    </div>
+                    
+                    <div class="blogTitleLink">
+                        <a href="/blog/<%= blog._id %>"><%= blog.title %></a>
+                    </div>
+                    
+                    </div>
+                </td>
+                <td>
+                    <a href="/blog/edit/<%= blog._id %>" class="btn btn-secondary">Edit</a>
+                    <a href="/blog/delete/<%= blog._id %>" class="btn btn-danger">Delete</a>
+                </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
     </div>
-    </div>
-                
+    <%- include('./partials/footer.ejs') %>
     <%- include('./partials/scripts.ejs') %>
 
 </body>

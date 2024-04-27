@@ -66,7 +66,7 @@ router.post('/signup', upload.single('profileImage'), async (req, res) => {
             userName,
             profileImageUrl: `/images/${req.file.filename}`,
         });
-        return res.redirect('/');
+        return res.redirect('/user/signin');
     
 });
 

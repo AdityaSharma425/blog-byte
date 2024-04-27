@@ -2,51 +2,102 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs') %>
-        <title>Home</title>
+  <%- include('./partials/head.ejs') %>
+    <title>Home</title>
 </head>
 
 <body>
-    <%- include('./partials/nav.ejs') %>
+  <%- include('./partials/nav.ejs') %>
+  
     
-      
+  <div class="class1">
     <div class="class1">
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <% blogs.forEach(blog => { %>
-                    <div class="carousel-item active">
-                    <img src="<%= blog.coverImageURL %>" class="d-block w-100 h-100">
-                    
-                    <div class="carousel-caption">
-                      <h1 class="homeBlogTitle"><%= blog.title %></h1>
-                      <p class="homeBlogBody"><%= blog.body.substring(0, 100) %>...</p>
-                      <a id="viewBlog" href="/blog/<%= blog._id %>">Read this blog</a>
-                    </div>
-                </div>
-                <% }) %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+      <li>
+        <!-- <div class="search">
+          <div class="text_and-icon">
+          <form action="/blog/search" method="post" id="searchform">
+          <input id="search" name="search" type="search" placeholder="Search here ...">
+          <i class="fa fa-search"></i></form>
           </div>
-          <div>
-            </div>
-    </div>
-    <div class="class2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas aspernatur accusamus at. Sequi voluptatibus quibusdam aspernatur maxime, dolores tempore sapiente eum nam eaque quos error magni nisi temporibus dolorem soluta?</div>
-    <div class="class3"></div>
+        </div> -->
 
+<div class="wrapper3">
+  <form action="/blog/search" method="post" id="searchform">
+  <div class="searchBar">
+    
+     <input id="searchQueryInput" name="search" type="search" placeholder="Search" value="" />
+     <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+       <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+       </svg>
+     </button>
+
+   </div>
+  </form>
+ </div>
+ 
+    </li>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <% for (let i = 0; i < 3; i++) { %>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%= i %>" <% if (i === 0) { %>class="active" aria-current="true"<% } %> aria-label="Slide <%= i + 1 %>"></button>
+            <% } %>
+          </div>
+          <div class="carousel-inner">
+            <% for (let i = 0; i < 3; i++) { %>
+              <div class="carousel-item <% if (blogs[i] && i === 0) { %>active<% } %>">
+                <% if (blogs[i]) { %>
+                  <img src="<%= blogs[i].coverImageURL %>" class="d-block w-100 h-100" alt="Slide <%= i + 1 %>">
+                  <div class="carousel-caption">
+                    <h1 class="homeBlogTitle"><%= blogs[i].title %></h1>
+                    <p class="homeBlogBody"><%= blogs[i].body.substring(0, 100) %>...</p>
+                    <a id="viewBlog" href="/blog/<%= blogs[i]._id %>">Read this blog</a>
+                  </div>
+                <% } %>
+              </div>
+            <% } %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="class2">
+<div class="container7">
+  <h4 class="mt-3">Recent Posts</h4>
+      <div class="row row-cols-3 row-cols-md-3 g-2 py-5">
+        <% const lastThreeBlogs = blogs.slice(-3); %>
+        <% lastThreeBlogs.forEach(blog => { %>
+        <div class="col">
+          <div class="card">
+            <img src="<%= blog.coverImageURL %>" class="card-img-top">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <h6 class="card-text"><%= blog.category %></h6>
+
+            </div>
+            <div class="mb-5 d-flex justify-content-around">
+              <a href="/blog/<%= blog._id %>" id="viewBlog">View</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <div>
+      
+    </div>
+   
+    <%- include('./partials/footer.ejs') %>
         <%- include('./partials/scripts.ejs') %>
-        <%- include('./partials/footer.ejs') %>
+        
 </body>
 
 
