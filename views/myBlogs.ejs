@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>My Blogs</title>
+        <title>My Blogs</title>
 </head>
+
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <div class="container6">
-        
-
-        <div class="dashboard">
+        <div class="container11">
             <h2>Dashboard</h2>
             <p>Welcome, <%= user.fullName %>!</p>
-            <!-- Add your dashboard content here -->
-            <a href="/blog/add-new" class="btn btn-primary">Create a new blog</a>
+
+            <div class="userProfile">
+                <img src="<%= locals.user.profileImageUrl %>" class="dashboardPfp">
+                <h3>
+                    <%= user.fullName %>
+                </h3>
+                <p>
+                    <%= user.email %>
+                </p>
+
+                <a href="/blog/add-new" id="createBlog"><i class="fa-solid fa-plus"> | </i> Create a new blog</a>
+                <br>
+                <a href="/user/logout" id="logoutBtn"><i class="fa-solid fa-sign-out"> | </i> Logout</a>
+            </div>
 
 
 
+           
+                <!-- Add your dashboard content here -->
+                
+                
+            <div class="container10">
+                <h3>My Blogs</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Title</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% blogs.forEach(blog=> { %>
+                            <tr>
+
+                                <td>
+                                    <a href="/blog/<%= blog._id %>">
+                                        <%= blog.title %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="/blog/edit/<%= blog._id %>" class="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="/blog/delete/<%= blog._id %>" class="deleteIcon"  onclick="if(!confirm('Are you sure you want to delete this blog?')) return false;"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+
+            </div>
+           
+                
+           
         </div>
-
-        
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Title</th>
-                <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% blogs.forEach(blog => { %>
-                <tr>
-                <td><div class="container">
-                    <div class="blogImgLink">
-                        <img src="<%= blog.coverImageURL %>" class="dashboardImg">
-                    </div>
-                    
-                    <div class="blogTitleLink">
-                        <a href="/blog/<%= blog._id %>"><%= blog.title %></a>
-                    </div>
-                    
-                    </div>
-                </td>
-                <td>
-                    <a href="/blog/edit/<%= blog._id %>" class="btn btn-secondary">Edit</a>
-                    <a href="/blog/delete/<%= blog._id %>" class="btn btn-danger">Delete</a>
-                </td>
-                </tr>
-            <% }) %>
-            </tbody>
-        </table>
-    </div>
-    <%- include('./partials/footer.ejs') %>
-    <%- include('./partials/scripts.ejs') %>
+        <%- include('./partials/footer.ejs') %>
+            <%- include('./partials/scripts.ejs') %>
+            
 
 </body>
+
 </html>

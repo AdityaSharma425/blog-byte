@@ -14,8 +14,8 @@ const { checkForAuthenticationCookie } = require('./middlewares/authentication')
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// mongoose.connect('mongodb://localhost:27017/beelog').then((e) => console.log("MongoDB connected"));
-mongoose.connect(process.env.MONGO_URI).then((e) => console.log("MongoDB connected"));
+mongoose.connect('mongodb://localhost:27017/beelog').then((e) => console.log("MongoDB connected"));
+// mongoose.connect(process.env.MONGO_URI).then((e) => console.log("MongoDB connected"));
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie('token'));
 app.use(express.static(path.resolve('./public')));
 app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/views'));  
 
 
 app.get("/", async(req, res) => {

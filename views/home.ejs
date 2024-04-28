@@ -11,8 +11,7 @@
   
     
   <div class="class1">
-    <div class="class1">
-      <li>
+    
         <!-- <div class="search">
           <div class="text_and-icon">
           <form action="/blog/search" method="post" id="searchform">
@@ -46,7 +45,7 @@
             <% for (let i = 0; i < 3; i++) { %>
               <div class="carousel-item <% if (blogs[i] && i === 0) { %>active<% } %>">
                 <% if (blogs[i]) { %>
-                  <img src="<%= blogs[i].coverImageURL %>" class="d-block w-100 h-100" alt="Slide <%= i + 1 %>">
+                  <img src="<%= blogs[i].coverImageURL %>" class="carouselImgs" alt="Slide <%= i + 1 %>">
                   <div class="carousel-caption">
                     <h1 class="homeBlogTitle"><%= blogs[i].title %></h1>
                     <p class="homeBlogBody"><%= blogs[i].body.substring(0, 100) %>...</p>
@@ -70,7 +69,8 @@
     </div>
     <div class="class2">
 <div class="container7">
-  <h4 class="mt-3">Recent Posts</h4>
+  <h4 class="recent">Recent Posts</h4>
+  <hr>
       <div class="row row-cols-3 row-cols-md-3 g-2 py-5">
         <% const lastThreeBlogs = blogs.slice(-3); %>
         <% lastThreeBlogs.forEach(blog => { %>
@@ -93,6 +93,9 @@
     </div>
     <div>
       
+    </div>
+    <div class="class3">
+
     </div>
    
     <%- include('./partials/footer.ejs') %>

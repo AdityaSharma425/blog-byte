@@ -11,9 +11,11 @@ body {
   height: 100vh;
   /* background-color: #000000;
   background-image: url('bg.jpg'); */
-  background-size: cover;
+  background-repeat: repeat;
+background-size: 30%;
+  background-attachment: fixed;
   background-position: center;
-  background-color: transparent;
+  background-image: url("backdrop.jpg");
 }
 
 .pfp {
@@ -32,10 +34,53 @@ body {
   transition: scale 0.2 ease;
 }
 
+#createBlog {
+  background-color: rgb(255, 217, 0);
+  color: black;
+  padding: 0.5rem 1rem;
+  
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+#createBlog:hover {
+  background-color: rgb(179, 179, 179);
+  color: black;
+}
+
+.deleteIcon:hover{
+  color: red;
+
+}
+
+.editIcon:hover{
+  color: rgb(105, 5, 187);
+
+}
+#logoutBtn {
+  background-color: rgb(255, 0, 43);
+  color: white;
+  padding: 0.5rem 1rem;
+  
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+#logoutBtn:hover {
+  background-color: rgb(206, 206, 206);
+  color: rgb(255, 0, 43);
+}
+
 select {
   padding: 0.2rem 0.8rem;
   border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
   color: rgb(0, 0, 0);
@@ -46,6 +91,7 @@ select {
 select:hover {
   border-color: rgb(255, 217, 0);
 }
+
 #viewBlog:hover {
   color: rgb(255, 217, 0);
   background-color: rgb(10, 10, 10);
@@ -55,23 +101,41 @@ select:hover {
 .class1 {
   background-attachment: fixed;
   width: 100%;
-  height: 90vh;
+  height: 94vh;
   position: inherit;
-  max-width: 1400px;
-  margin: 0 auto; /* Add this line to center the element */
+  
+  margin: 0 auto;
+  border-top: 3px solid black;
+  /* Add this line to center the element */
+}
+
+.recent{
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  width: 20%;
+  padding: 5px;
+  
+
+}
+
+.recent:hover{
+  background-color: rgb(255, 217, 0);
+  color: black;
 }
 .class2 {
-  background-color: white;
+  background-color: transparent;
   color: black;
-  height: 90vh;
+  height: 10vh;
   width: 100%;
 }
+
 .class3 {
   background-image: url(bg.jpg);
   background-attachment: fixed;
   width: 100%;
-  height: 40vh;
-  max-width: 1400px;
+  height: 80vh;
+  
 }
 
 li {
@@ -104,6 +168,7 @@ a {
   font-weight: 500;
   margin-bottom: 20px;
 }
+
 a:hover {
   color: rgb(114, 4, 187);
 }
@@ -111,7 +176,7 @@ a:hover {
 header {
   position: relative;
   padding: 0 2rem;
-  background-color: transparent;
+  background-color: black;
 }
 
 .navbar {
@@ -124,7 +189,7 @@ header {
   justify-content: space-between;
   background-color: transparent;
   background-attachment: fixed;
-  border-bottom: #000 2px solid;
+  
 }
 
 /* .navbar{
@@ -165,8 +230,10 @@ header {
 .containeredit {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align to the right side */
-  justify-content: flex-start; /* Align to the top */
+  align-items: flex-end;
+  /* Align to the right side */
+  justify-content: flex-start;
+  /* Align to the top */
   padding: 10px 25px;
   margin: auto;
   width: 120px;
@@ -287,7 +354,7 @@ header {
   width: 200px;
   display: flex;
   align-items: center;
-  
+
 }
 
 .search_icon {
@@ -299,14 +366,14 @@ header {
   /** Firefox **/
   -o-transition: all 0.6s ease-in-out;
   /** Opera **/
- 
+
 }
 
 .search_text:focus {
   outline: none !important;
 }
 
-.search_text:focus + .search_icon {
+.search_text:focus+.search_icon {
   color: #ffffff;
   transform: translate(35px, 0);
   -webkit-transform: translate(55px, 0);
@@ -340,17 +407,17 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    
-  }
- 
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+}
 
 
-.homeBlogTitle{
+
+.homeBlogTitle {
   text-shadow: 0 0 2px black;
-  }
+}
 
 
 #searchQueryInput {
@@ -380,7 +447,9 @@ header {
 .navbar .logo a {
   font-size: 1.5rem;
   font-weight: bold;
+  color: rgb(255, 253, 253);
 }
+
 
 .navbar .links {
   display: flex;
@@ -390,7 +459,7 @@ header {
 .links a {
   position: relative;
   font-size: 18px;
-  color: #000000;
+  color: #ffffff;
   font-weight: 500;
   text-decoration: none;
   margin-left: 40px;
@@ -403,7 +472,7 @@ header {
   left: 0;
   width: 0;
   height: 2px;
-  background: rgb(114, 4, 187);
+  background: rgb(255, 196, 0);
   transition: 0.3s;
 }
 
@@ -412,7 +481,7 @@ header {
 }
 
 .links a:hover {
-  color: rgb(66, 0, 121);
+  color: rgb(255, 196, 0);
   font-weight: bold;
 }
 
@@ -421,7 +490,7 @@ header {
 }
 
 .navbar .toggle_btn {
-  color: #000000;
+  color: #ffffff;
   font-size: 1.5rem;
   cursor: pointer;
   display: none;
@@ -429,9 +498,9 @@ header {
 
 .action_btn {
   background-color: none;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   padding: 0.5rem 1rem;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid rgb(255, 196, 0);
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -440,9 +509,9 @@ header {
 }
 
 .action_btn:hover {
-  color: rgb(76, 2, 138);
-  background-color: none;
-  border: 2px solid rgb(76, 2, 138);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 196, 0);
+  /* border: 2px solid rgb(76, 2, 138); */
 }
 
 .action_btn:active {
@@ -450,6 +519,7 @@ header {
 }
 
 @media (max-width: 992px) {
+
   .navbar .links,
   .action .action_btn {
     display: none;
@@ -568,6 +638,38 @@ section#hero {
   z-index: 1;
 }
 
+.container10{
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: 5rem;
+  background-color: #c3c4d8;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  float: right;
+  right: 20px;
+  width: 700px;
+  color: rgb(0, 0, 0);
+}
+
+.table{
+  width: 100%;
+  
+  margin-top: 2rem;
+  
+}
+
+
+.container11{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 800px;
+}
 .container1 {
   max-width: 500px;
   margin: 0 auto;
@@ -601,21 +703,35 @@ section#hero {
 }
 
 .container7 {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   margin-top: 2rem;
-  background-color: #f5f5f5;
+  background-color: rgb(255, 255, 255);
   /* border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-top: 50px;
   align-items: center;
   text-align: center;
   font-family: Arial, sans-serif;
   color: #333;
+  height: 700px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  max-width: 1400px;
+  box-shadow: 0 2px 10px rgb(0, 0, 0);
+  margin: 20px auto;
 }
+
+.carouselImgs{
+  width: 100%;
+  height: 94vh;
+}
+
+.hlogin{
+  background-color: transparent;
+}
+
 
 .deletebtn {
   font-weight: 500;
@@ -673,51 +789,87 @@ section#hero {
   color: #333;
 }
 
-.dashboardImg{
+.dashboardImg {
 
-  width: 15%;
+  width: 25%;
   height: auto;
- 
-  max-width: 100%;
-  max-height: 100%;
+
+
   border-radius: 10px;
 
 }
 
-
-.blogImgLink{
-  display: inline-block;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px;
-}
-
-.blogTitleLink{
+th {
+  background-color: #f5f5f5;
   color: black;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 20%;
-  margin-top: 0; /* Add this line to adjust the vertical alignment */
 }
 
+td {
+  background-color: #f5f5f5;
+  color: black;
+}
+
+.tableImg {
+  width: 50%;
+  height: auto;
+
+  /* Remove the space between cells */
+}
+
+.userProfile{
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 25%;
+  float: left;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard{
+  right: 0;
+  float: right;
+}
+
+
+.dashboardPfp{
+  width: 30%;
+  height: auto;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
 .container8 {
-  max-width: 1400px;
   margin: 0 auto;
-  
+
   margin-top: 2rem;
   background-color: #f5f5f5;
   /* border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   display: flex;
   flex-direction: column;
-  
+
   text-align: center;
   font-family: Arial, sans-serif;
   color: #333;
 }
+
+.containerabout {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5rem;
+}
+
 
 .container6 {
   max-width: 1400px;
@@ -727,6 +879,7 @@ section#hero {
   background-color: #f5f5f5;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rem;
 }
 
 .container3 {
@@ -797,6 +950,7 @@ section#hero {
 .btn-primary:hover {
   background-color: #0069d9;
 }
+
 .text-center {
   text-align: center;
 }
@@ -939,16 +1093,18 @@ section#hero {
 /* POPPINS FONT */
 
 .wrapper {
-  background: #ececec;
+  background: transparent;
   padding: 0 20px 0 20px;
   margin-top: 2px;
 }
+
 .main {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
+
 .side-image {
   background-image: url("signup.jpg");
   background-position: center;
@@ -958,6 +1114,7 @@ section#hero {
   position: relative;
   opacity: 0.9;
 }
+
 #getstarted {
   width: 900px;
   height: 550px;
@@ -966,30 +1123,36 @@ section#hero {
   padding: 0px;
   box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
 }
+
 .text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .text p {
   color: #fff;
   font-size: 20px;
 }
+
 i {
   font-weight: 400;
   font-size: 15px;
 }
+
 .right {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
+
 .input-box {
   width: 330px;
   box-sizing: border-box;
 }
+
 img .signupPage {
   width: 35px;
   position: absolute;
@@ -997,17 +1160,20 @@ img .signupPage {
   left: 30px;
   background-image: url("bg.jpg");
 }
+
 .input-box header {
   font-weight: 700;
   text-align: center;
   margin-bottom: 35px;
 }
+
 .input-field {
   display: flex;
   flex-direction: column;
   position: relative;
   padding: 0 10px 0 10px;
 }
+
 .input {
   height: 45px;
   width: 100%;
@@ -1018,6 +1184,7 @@ img .signupPage {
   margin-bottom: 20px;
   color: #40414a;
 }
+
 .input-box .input-field label {
   position: absolute;
   top: 10px;
@@ -1025,19 +1192,23 @@ img .signupPage {
   pointer-events: none;
   transition: 0.5s;
 }
-.input-field input:focus ~ label {
+
+.input-field input:focus~label {
   top: -10px;
   font-size: 13px;
 }
-.input-field input:valid ~ label {
+
+.input-field input:valid~label {
   top: -10px;
   font-size: 13px;
   color: #5d5076;
 }
+
 .input-field .input:focus,
 .input-field .input:valid {
   border-bottom: 1px solid #743ae1;
 }
+
 .submit {
   border: none;
   outline: none;
@@ -1047,44 +1218,53 @@ img .signupPage {
   transition: 0.4s;
   margin-top: 20px;
 }
+
 .submit:hover {
   background: rgba(76, 2, 138, 0.737);
   color: #fff;
 }
+
 .signin {
   text-align: center;
   font-size: small;
   margin-top: 25px;
 }
+
 span a {
   text-decoration: none;
   font-weight: 700;
   color: #000;
   transition: 0.5s;
 }
+
 span a:hover {
   text-decoration: underline;
   color: #000;
 }
+
 @media only screen and (max-width: 768px) {
   .side-image {
     border-radius: 10px 10px 0 0;
   }
+
   img {
     width: 35px;
     position: absolute;
     top: 20px;
     left: 47%;
   }
+
   .text {
     position: absolute;
     top: 70%;
     text-align: center;
   }
+
   .text p,
   i {
     font-size: 16px;
   }
+
   .row {
     max-width: 420px;
     width: 100%;
