@@ -81,7 +81,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= blog.title %></h5>
               <h6 class="card-text"><%= blog.category %></h6>
-
+              <h6 class="card-text"><%= blog.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></h6>
             </div>
             <div class="mb-5 d-flex justify-content-around">
               <a href="/blog/<%= blog._id %>" id="viewBlog">View</a>
@@ -94,9 +94,7 @@
     <div>
       
     </div>
-    <div class="class3">
-
-    </div>
+    
    
     <%- include('./partials/footer.ejs') %>
         <%- include('./partials/scripts.ejs') %>

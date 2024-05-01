@@ -16,6 +16,7 @@
             <% blog.body.split('\n').forEach(paragraph => { %>
                 <p class="mt-3"><%= paragraph %></p>
             <% }) %>
+            <%= blog.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
         </div>
         
 

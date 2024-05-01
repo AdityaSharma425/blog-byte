@@ -32,6 +32,7 @@ background-size: 30%;
   font-weight: 700;
   cursor: pointer;
   transition: scale 0.2 ease;
+  
 }
 
 #createBlog {
@@ -115,6 +116,7 @@ select:hover {
   border-radius: 20px;
   width: 20%;
   padding: 5px;
+
   
 
 }
@@ -123,6 +125,34 @@ select:hover {
   background-color: rgb(255, 217, 0);
   color: black;
 }
+
+.dashboardTitle{
+  color: white;
+  background-color: black;
+  border-radius: 18px;
+  width: 15%;
+  padding: 7px;
+}
+
+.dashboardTitle:hover{
+  background-color: rgb(255, 217, 0);
+  color: black;
+}
+
+.aboutTitle{
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  width: 30%;
+  padding: 7px;
+}
+
+.aboutTitle:hover{
+  background-color: rgb(255, 217, 0);
+  color: black;
+}
+
+
 .class2 {
   background-color: transparent;
   color: black;
@@ -150,7 +180,7 @@ a {
 
 .carousel-caption {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -218,13 +248,17 @@ header {
   height: 196px;
   background-color: rgba(0, 0, 0, 0.842);
   border-radius: 25px;
-  margin-right: 60px;
+  
+
   margin-top: 10px;
   -webkit-box-shadow: 0px 10px 38px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 10px 38px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 10px 38px 0px rgba(0, 0, 0, 0.1);
   float: right;
   margin-right: 260px;
+}
+.card{
+  box-shadow: 0px 10px 38px 0px rgba(0, 0, 0, 0.1);
 }
 
 .containeredit {
@@ -419,6 +453,12 @@ header {
   text-shadow: 0 0 2px black;
 }
 
+p.homeBlogBody{
+  width: 100%;
+  font-style: italic;
+  text-shadow: 0 0 2px black;
+  font-size: medium;
+}
 
 #searchQueryInput {
   width: 100%;
@@ -611,7 +651,7 @@ section#hero {
 }
 
 .dropbtn {
-  background-color: black;
+  background-color: rgb(66, 66, 66);
   color: rgb(255, 217, 0);
   position: relative;
   font-size: 14px;
@@ -665,10 +705,11 @@ section#hero {
   margin: 0 auto;
   padding: 20px;
   margin-top: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgb(0, 0, 0);
   height: 800px;
+  margin-bottom: 20px;
 }
 .container1 {
   max-width: 500px;
@@ -691,15 +732,22 @@ section#hero {
 }
 
 .container4 {
-  max-width: 1400px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   margin-top: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgb(0, 0, 0);
   float: left;
   margin-left: 260px;
+}
+
+.footerCss{
+  float:inline-end;
+  float: left;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .container7 {
@@ -817,20 +865,18 @@ td {
 }
 
 .userProfile{
-  margin-top: 2rem;
+  margin: 0 auto;
   background-color: #000;
   color: white;
   border-radius: 20px;
   padding: 20px;
-  width: 25%;
+  width: 28%;
   float: left;
-  margin-bottom: 2rem;
-  align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 70%;
 }
 .dashboard{
   right: 0;
@@ -864,9 +910,9 @@ td {
   margin: 0 auto;
   padding: 20px;
   margin-top: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgb(0, 0, 0);
   margin-bottom: 5rem;
 }
 
@@ -891,6 +937,12 @@ td {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: white;
+}
+
+.coverImg{
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
 }
 
 .blogcoverimg {
@@ -985,6 +1037,10 @@ td {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
+.card:hover{
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.175);
+  scale: 1.05;
+}
 .card-img-top {
   width: 100%;
   height: 200px;
@@ -1206,7 +1262,7 @@ img .signupPage {
 
 .input-field .input:focus,
 .input-field .input:valid {
-  border-bottom: 1px solid #743ae1;
+  border-bottom: 1px solid rgb(63, 61, 51);
 }
 
 .submit {
@@ -1220,8 +1276,8 @@ img .signupPage {
 }
 
 .submit:hover {
-  background: rgba(76, 2, 138, 0.737);
-  color: #fff;
+  background: rgb(255, 217, 0);
+  color: black;
 }
 
 .signin {

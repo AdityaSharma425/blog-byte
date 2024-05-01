@@ -10,17 +10,16 @@
     <%- include('./partials/nav.ejs') %>
 
         <div class="container11">
-            <h2>Dashboard</h2>
+            <h2 class="dashboardTitle">Dashboard</h2>
             <p>Welcome, <%= user.fullName %>!</p>
 
             <div class="userProfile">
                 <img src="<%= locals.user.profileImageUrl %>" class="dashboardPfp">
                 <h3>
-                    <%= user.fullName %>
+                    @<%= user.userName %>
                 </h3>
-                <p>
-                    <%= user.email %>
-                </p>
+                <h4><%= user.fullName %></h4>
+                <p><%= user.email %></p>
 
                 <a href="/blog/add-new" id="createBlog"><i class="fa-solid fa-plus"> | </i> Create a new blog</a>
                 <br>
@@ -38,19 +37,34 @@
                 <table class="table">
                     <thead>
                         <tr>
-
+                            <th>Serial No.</th>
+                            <th>Cover Image</th>
                             <th>Title</th>
+                            <th>Published On</th>
+                            <th>Comments</th>
                             <th>Actions</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <% blogs.forEach(blog=> { %>
                             <tr>
-
+                                <td>
+                                    <%= blogs.indexOf(blog) + 1 %>
+                                </td>
+                                <td>
+                                    <img src="<%= blog.coverImageURL %>" class="coverImg" alt="<%= blog.title %>">
+                                </td>
                                 <td>
                                     <a href="/blog/<%= blog._id %>">
                                         <%= blog.title %>
                                     </a>
+                                </td>
+                                <td>
+                                    <%= blog.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+                                </td>
+                                <td>
+                                    <%= blog.comments %>
                                 </td>
                                 <td>
                                     <a href="/blog/edit/<%= blog._id %>" class="editIcon"><i class="fa-solid fa-pen-to-square"></i></a>

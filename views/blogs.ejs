@@ -12,7 +12,7 @@
          
 
           <div class="container4 mt-4">
-            <h1 class="text-center">All Blogs</h1>
+            <h1 class="recent text-center">All Blogs</h1>
             
             
           
@@ -26,7 +26,7 @@
                   <div class="card-body">
                     <h5 class="card-title"><%= blog.title %></h5>
                     <h6 class="card-text"><%= blog.category %></h6>
-
+                    <h6 class="card-text"><%= blog.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></h6>
                   </div>
                   <div class="mb-5 d-flex justify-content-around">
                     
@@ -85,7 +85,9 @@
             </div>
           </div>
           </div>
-
+        <div class="footerCss">
+          <%- include('./partials/footer.ejs') %>
+        </div>
     
     <%- include('./partials/scripts.ejs') %>
     
