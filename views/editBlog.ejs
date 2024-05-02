@@ -8,6 +8,7 @@
     <%- include('./partials/nav.ejs') %>
     
     <div class="container1">
+        <h1 class="recent mb-3">Edit Blog</h1>
         <form action="/blog/edit/<%= blog._id %>" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -55,8 +56,8 @@
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-danger" onclick="window.location.href='/blog/<%= blog._id %>'">Cancel</button>
+                <button type="submit" id="viewBlog">Save</button>
+                <button type="button" class="cancelbtn" onclick="window.location.href='/blog/<%= blog._id %>'">Cancel</button>
                 </div>
 
     </div>

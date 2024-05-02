@@ -8,6 +8,7 @@
     <%- include('./partials/nav.ejs') %>
     
     <div class="container1">
+        <h1 class="recent mb-3">Add New Blog</h1>
         <form action="/blog" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -17,6 +18,7 @@
                 id="title" 
                 name="title" 
                 aria-describedby="title"
+                required=""
                 />
             </div>
 
@@ -28,17 +30,19 @@
                 id="coverImage" 
                 name="coverImage" 
                 aria-describedby="coverImage"
+                required=""
                 />
             </div>
 
             <div class="mb-3">
                 <label for="body">Body</label>
-                <textarea name="body" class="form-control" id="body"></textarea>  
+                <textarea name="body" class="form-control" id="body"
+                required=""></textarea>  
             </div>
 
             <div class="mb-3">
                 <label for="category">Category</label>
-                <select name="category" class="form-select" id="category">
+                <select name="category" class="form-select" id="category" required="">
                     <option value="Select Category">Select Category</option>
                     <option value="Technology">Technology</option>
                     <option value="Health">Health</option>
@@ -54,7 +58,7 @@
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="viewBlog">Submit</button>
             </div>
         </form>
     </div>
