@@ -8,7 +8,7 @@
     <%- include('./partials/nav.ejs') %>
     
     <div class="container1">
-        <h1 class="recent mb-3">Edit Blog</h1>
+        <h1 class="recent mb-3">Edit your product</h1>
         <form action="/blog/edit/<%= blog._id %>" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="coverImage" class="form-label">Cover Image</label>
+                <label for="coverImage" class="form-label">Product Image</label>
                 <input 
                 type="file" 
                 class="form-control" 
@@ -34,26 +34,50 @@
             </div>
 
             <div class="mb-3">
-                <label for="body">Body</label>
-                <textarea name="body" class="form-control" id="body"><%= blog.body %></textarea>  
+                <label for="body">Product Description</label>
+                    <textarea name="body" class="form-control" id="body"
+                    required=""><%= blog.body %></textarea>
+                <!-- <div contenteditable="true" class="editable">
+                    <div class="editor" name="body" id="body"></div>
+                </div> -->
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Product Price</label>
+                <input  
+                type="text" 
+                class="form-control" 
+                id="price" 
+                name="price" 
+                aria-describedby="price"
+                value="<%= blog.price %>"
+                />
             </div>
 
             <div class="mb-3">
-                <label for="category">Category</label>
-                <select name="category" class="form-select" id="category">
-                    <option value="Select Category">Select Category</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Health">Health</option>
-                    <option value="Science">Science</option>
-                    <option value="Travel">Travel</option>
-                    <option value="Food">Food</option>
-                    <option value="Fashion">Fashion</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Music">Music</option>
-                    <option value="Movies">Movies</option>
-                    <option value="Books">Books</option>
-                </select> 
+                <label for="heritage">Heritage</label>
+                <input
+                type="text"
+                class="form-control"
+                id="heritage"
+                name="heritage"
+                aria-describedby="heritage"
+                value="<%= blog.heritage %>"                
+                />
             </div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input
+                type="text"
+                class="form-control"
+                id="location"
+                name="location"
+                aria-describedby="location"
+                value="<%= blog.location %>"
+                />
+            </div>
+
+            
 
             <div class="mb-3">
                 <button type="submit" id="viewBlog">Save</button>

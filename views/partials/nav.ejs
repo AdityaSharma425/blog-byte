@@ -1,14 +1,14 @@
 <header>
   <div class="navbar">
     <div class="logo">
-      <a href="/">BlogByte</a>
+      <a href="/">ArtisanRoots</a>
     </div>
     <ul class="links">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
-      <li><a href="/allblogs">Blogs</a></li>
+      <li><a href="/allblogs">Products</a></li>
       <% if (locals.user) { %>
-        <li><a href="/blog/add-new">Add Blog</a></li>
+        <li><a href="/blog/add-new">Add a New Product</a></li>
         <li>
           <div class="dropdown">
             <button class="dropbtn"><img src="<%= locals.user.profileImageUrl %>" width="25px" class="pfp" /> @ <%=

@@ -36,8 +36,8 @@ router.post('/search', async(req, res) => {
 });
 
 router.post('/filter', async (req, res) => {
-  const { category } = req.body;
-  const blogs = await Blog.find({ category: category });
+  const { state } = req.body;
+  const blogs = await Blog.find({ state : state });
   return res.render('filteredBlogs', {
     user: req.user,
     blogs,
@@ -70,7 +70,7 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 router.post('/edit/:id', upload.single('coverImage'), async (req, res) => {
-  const { title, body, category } = req.body;
+  const { title, body, price, heritage, location } = req.body;
   const blog = await Blog.findById(req.params.id);
 
   if (!blog) {
@@ -79,7 +79,9 @@ router.post('/edit/:id', upload.single('coverImage'), async (req, res) => {
 
   blog.title = title;
   blog.body = body;
-  blog.category = category;
+  blog.price = price;
+  blog.heritage = heritage;
+  blog.location = location;
 
   if (req.file) {
     blog.coverImageURL = `/uploads/${req.file.filename}`;
@@ -129,11 +131,13 @@ router.post('/comment/:blogId', async(req, res) => {
 
 
 router.post('/', upload.single('coverImage'), async(req, res) => {
-  const {title, body, category} = req.body;
+  const {title, body, price, heritage, location} = req.body;
   const blog = await Blog.create({
     body,
     title,
-    category,
+    price,
+    heritage,
+    location,
     createdBy: req.user._id,
     coverImageURL: `/uploads/${req.file.filename}`,
   })

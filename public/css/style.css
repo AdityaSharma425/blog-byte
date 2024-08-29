@@ -15,7 +15,7 @@ body {
 background-size: 30%;
   background-attachment: fixed;
   background-position: center;
-  background-image: url("backdrop.jpg");
+  background-image: url("backdrop.jpg");k
 }
 
 .pfp {
@@ -28,11 +28,27 @@ background-size: 30%;
   padding: 0.5rem 1rem;
   border: 2px solid rgb(255, 217, 0);
   border-radius: 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: scale 0.2 ease;
   
+}
+
+.addtocart{
+  background-color: rgb(233, 224, 174);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: scale 0.2 ease;
+}
+
+.addtocart:hover{
+  background-color: rgb(63, 61, 51);
+  color: white;
 }
 
 #createBlog {
@@ -106,7 +122,6 @@ select:hover {
   position: inherit;
   
   margin: 0 auto;
-  border-top: 3px solid black;
   /* Add this line to center the element */
 }
 
@@ -219,7 +234,13 @@ a:hover {
 header {
   position: relative;
   padding: 0 2rem;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+  float: top;
+}
+
+.prodtitle{
+  margin-left: 5vh;
 }
 
 .navbar {
@@ -232,6 +253,7 @@ header {
   justify-content: space-between;
   background-color: transparent;
   background-attachment: fixed;
+
   
 }
 
@@ -248,22 +270,26 @@ header {
     
   } */
 
+.blockk{
+  height: 5vh;
+  width: 100%;
+  margin-top: 0px;
+  display: inline-block;
+}
 
 .blogCategory{
   color: rgb(0, 0, 0);
-  background-color: rgb(255, 217, 0);
-  border-radius: 15px;
-  align-items: center;
-  justify-content: center;
+  /* background-color: rgb(255, 217, 0);
+  border-radius: 15px; */
+
   max-width: fit-content;
   padding: 5px;
+  margin: 5px;
+  float: left;
+  z-index: 9999;
 
 }
 
-.blogCategory:hover{
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 217, 0);
-}
 
 .container5 {
   display: flex;
@@ -273,7 +299,7 @@ header {
   padding: 10px 25px;
   margin: auto;
   width: 220px;
-  height: 196px;
+  height: 10vh;
   background-color: rgba(0, 0, 0, 0.842);
   border-radius: 25px;
   
@@ -287,6 +313,24 @@ header {
 }
 .card{
   box-shadow: 0px 10px 38px 0px rgba(0, 0, 0, 0.1);
+}
+
+.login{
+  color: white;
+  float: right;
+  margin-left: 20vh;
+}
+
+.bgdrop{
+  background-image: url("bgdrop.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+
+
 }
 
 .containeredit {
@@ -444,7 +488,24 @@ header {
 }
 
 
+.second{
+  display: inline-block;
+}
 
+.second1{
+  float: left;
+}
+
+.second2{
+  float: right;
+  text-align: right;
+  max-width: 70vh;
+}
+
+.para{
+  text-align: left;
+  margin-left: 20vh;
+}
 .wrapper2 {
   width: 100%;
   max-width: 31.25rem;
@@ -454,19 +515,32 @@ header {
 
 .blogpagetitle{
   position: absolute;
+  margin-left: 20vh;
   max-width: 10rem; 
-  color: rgb(255, 254, 254);
-  font-size: 6rem;
+  color: rgb(0, 0, 0);
+  font-size: 4rem;
   padding: 20px;
   margin-top: 10px;
   text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   
   
 }
+.blogpageprice{
+  position: absolute;
+  margin-left: 40vh;
+  max-width: 10rem; 
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  padding: 20px;
+  margin-top: 10vh;
+  /* text-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); */
+  
+  
+}
 
 .wrapper3 {
   position: absolute;
-  top: 10%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -492,11 +566,20 @@ header {
   text-shadow: 0 0 2px black;
 }
 
-p.homeBlogBody{
-  width: 100%;
+.homeBlogBody{
   font-style: italic;
-  text-shadow: 0 0 2px black;
-  font-size: medium;
+  color: white;
+  margin-top: 70vh;
+  font-size: 2rem;
+  z-index: 9999;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: 400;
+  max-width: 80vh;
+  text-align: center;
+  margin-left: 60vh;
 }
 
 #searchQueryInput {
@@ -768,8 +851,9 @@ section#hero {
   background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 2px 5px rgb(0, 0, 0);
-  height: 800px;
+  height: 110vh;
   margin-bottom: 20px;
+
 }
 .container1 {
   max-width: 1400px;
@@ -833,7 +917,7 @@ section#hero {
   max-height: max-content;
 }
 .container4 {
-  max-width: 1000px;
+  width: 100vh;
   margin: 0 auto;
   padding: 20px;
   margin-top: 2rem;
@@ -897,6 +981,14 @@ section#hero {
   color: #ff5555;
 }
 
+.price{
+  font-family: "Atlas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 1.1rem;
+  display: inline-block;
+
+}
+
 .paragraph2 {
   line-height: 1.5;
   color: #333;
@@ -904,10 +996,11 @@ section#hero {
   font-family: Academica Book Pro;
   font-size: 18px;
   line-height: 30.8px;
-  
+  text-align: right;
   margin-left: 500px;
   max-width: 900px;
   height:auto
+  
 }
 
 .editbtn {
@@ -1084,11 +1177,10 @@ td {
 
 .blogcoverimg {
   width: auto;
-  height: 90vh;
-  margin: 0 auto;
+  height: 70vh;
+  
   display: flex;
-  justify-content: center;
-  align-items: center;
+  
   max-width: 100%;
   max-height: 100%;
   border-radius: 20px;

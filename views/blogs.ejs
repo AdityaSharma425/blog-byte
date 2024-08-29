@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>All Blogs</title>
+    <title>All Products</title>
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
@@ -12,7 +12,7 @@
          
 
           <div class="container4 mt-4">
-            <h1 class="recent text-center">All Blogs</h1>
+            <h1 class="recent text-center">All Products</h1>
             
             
           
@@ -24,8 +24,8 @@
                   <img src="<%= blog.coverImageURL %>" class="card-img-top">
 
                   <div class="card-body">
-                    <h5 class="card-title"><%= blog.title %></h5>
-                    <h6 class="card-text"><%= blog.category %></h6>
+                    <h3 class="card-title"><%= blog.title %></h3> 
+                    <h4 class="card-text">Rs.<%= blog.price %></h4>
                     <h6 class="card-text"><%= blog.createdAt.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %></h6>
                   </div>
                   <div class="mb-5 d-flex justify-content-around">
@@ -65,24 +65,7 @@
              
            
 
-            <div class="category mt-4">
-            <form action="/blog/filter" method="post">
-              <select name="category" id="category">
-                <option value="Select Category">Select Category</option>
-                <option value="Technology">Technology</option>
-                <option value="Health">Health</option>
-                <option value="Science">Science</option>
-                <option value="Travel">Travel</option>
-                <option value="Food">Food</option>
-                <option value="Fashion">Fashion</option>
-                <option value="Sports">Sports</option>
-                <option value="Music">Music</option>
-                <option value="Movies">Movies</option>                
-                <option value="Books">Books</option>
-              </select> 
-              <button type="submit" class="filterbtn">Filter</button>
-            </form>
-            </div>
+            
           </div>
           </div>
         <div class="footerCss">

@@ -14,14 +14,22 @@ const blogSchema = new Schema(
             type: String,
             required: false,
         },
-        category: {
-            type: String,
-            required: true,
-        },
         
         createdBy: {
             type: Schema.Types.ObjectId,
             ref: "user",
+        },
+        price: {
+            type: String,
+            required: true,
+        },
+        heritage: {
+            type: String,
+            required: true,
+        },
+        location: {
+            type: String,
+            required: true,
         },
     },
     { timestamps: true }
